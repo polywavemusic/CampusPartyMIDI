@@ -1,5 +1,5 @@
-int val1, val2, val3 = 0;
-int lastVal1, lastVal2, lastVal3 = 0;
+int val1 = 0;
+int lastVal1 = 0;
 
 void setup(){
   //Use the same speed as Hairless Midi software
@@ -15,15 +15,6 @@ void loop(){
     MIDImessage(176,1,val1);
   }
   lastVal1 = val1; //update last value
-
-  //Reading POT 2
-  val1 = analogRead(2)/8; // Divide by 8 to get range of 0-127 for midi
-  //If pot changed it's value, we send a MIDI Message
-  if (val2 != lastVal2){
-    MIDImessage(176,2,val2);
-  }
-  lastVal2 = val2; //update last value
-
 
   //here we add a short delay to help prevent slight fluctuations, knocks on the pots etc. 
   //Adding this helped to prevent my pots from jumpin up or down a value when slightly touched or knocked.
